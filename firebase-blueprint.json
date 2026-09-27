@@ -1,0 +1,79 @@
+{
+  "entities": {
+    "DeliveryApplication": {
+      "title": "Delivery Application",
+      "description": "Ekart Logistics delivery partner registration application",
+      "type": "object",
+      "properties": {
+        "applicationId": {
+          "type": "string",
+          "description": "Unique application tracking code, e.g. EKART-123456"
+        },
+        "name": {
+          "type": "string",
+          "description": "Applicant full legal name"
+        },
+        "mobile": {
+          "type": "string",
+          "description": "10-digit Indian mobile number"
+        },
+        "bikeAvailable": {
+          "type": "boolean",
+          "description": "Whether the applicant has a two-wheeler"
+        },
+        "aadharFrontUrl": {
+          "type": "string",
+          "description": "Aadhaar Card Front photo path or reference"
+        },
+        "aadharBackUrl": {
+          "type": "string",
+          "description": "Aadhaar Card Back photo path or reference"
+        },
+        "panFrontUrl": {
+          "type": "string",
+          "description": "PAN Card Front photo path or reference"
+        },
+        "panBackUrl": {
+          "type": "string",
+          "description": "PAN Card Back photo path or reference"
+        },
+        "selfieUrl": {
+          "type": "string",
+          "description": "Applicant Selfie photo path or reference"
+        },
+        "submittedAt": {
+          "type": "number",
+          "description": "Timestamp in milliseconds when application was created"
+        },
+        "trainingDate": {
+          "type": "string",
+          "description": "Calculated training schedule date and hub details"
+        },
+        "status": {
+          "type": "string",
+          "enum": ["PENDING", "APPROVED", "REJECTED"],
+          "description": "Current workflow review status"
+        },
+        "rejectionReason": {
+          "type": "string",
+          "description": "Reason provided by administrator if application is rejected"
+        },
+        "approvedAt": {
+          "type": "number",
+          "description": "Timestamp when approved by admin"
+        },
+        "rejectedAt": {
+          "type": "number",
+          "description": "Timestamp when rejected by admin"
+        }
+      },
+      "required": ["applicationId", "name", "mobile", "bikeAvailable", "submittedAt", "trainingDate", "status"]
+    }
+  },
+  "firestore": {
+    "/applications/{applicationId}": {
+      "schema": "DeliveryApplication",
+      "description": "Collection of all delivery partner job applications"
+    }
+  }
+}

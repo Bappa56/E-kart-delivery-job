@@ -1,0 +1,6 @@
+{
+  "name": "Ekart Delivery",
+  "description": "Ekart Logistics delivery partner registration, application tracking, and admin approval management system.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
